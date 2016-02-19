@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Favicon Test</title>
+  <link rel="stylesheet" href="style.css">
+  <link id="favicon" rel="shortcut icon" href="blank.ico" />
+  <style>
+    .header input {
+      font-size: 1.5em;
+    }
+    .content {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <input id="input" oninput="document.title = this.value || 'Favicon Test';" placeholder="Favicon Test">
+</div>
+<div class="ribbon"></div>
+<div class="content">
+
+<!-- Content -->
+
+  <script src="drag-drop-file.js"></script>
+
+  <div id="feedback">
+    Drag a favicon here!
+  </div>
+  <img id="img" src="">
+
+  <script>
+    registerFileDragDrop(document.body, document.getElementById("feedback"), function(file) {
+      var url = URL.createObjectURL(file);
+      document.getElementById("favicon").href = url;
+      document.getElementById("img").src = url;
+      if (document.getElementById("input").value === "") {
+        document.title = file.name;
+      }
+    });
+  </script>
+
+<!-- Content -->
+
+</div>
+
+</body>
+</html>
