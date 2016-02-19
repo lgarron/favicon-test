@@ -14,11 +14,11 @@ function registerFileDragDrop(domElement, feedbackElement, callback) {
 
   function setDragDropVisualFeedback(type) {
     feedbackElement.innerHTML = feedback_text[type]
-    var cL = feedbackElement.classList;
+    var cL = document.body.classList;
     for (i in css_classes) {
       cL.remove(css_classes[i]);
     }
-    feedbackElement.classList.add(css_classes[type]);
+    document.body.classList.add(css_classes[type]);
   }
 
   function dragEnter(event) {
